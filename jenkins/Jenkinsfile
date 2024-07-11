@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    customWorkspace "/home/ubuntu/simple-node-js-react-npm-app"
         //docker {
            // image 'node:lts-buster-slim'
            // args '-p 3000:3000'
