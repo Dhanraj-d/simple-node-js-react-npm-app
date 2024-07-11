@@ -10,4 +10,5 @@ Q2. In the fork created, create a pipeline to pull the latest postgres, redis an
 Username: ati
 Password: ati1234
 
-ans. 
+ans. I have created a pipeline to pull the latest postgres, redis and mongo-express and mongo db images, below is the directory to pipeline
+     jenkins/jenkinsfile-for-dockerimages
