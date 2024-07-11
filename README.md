@@ -14,30 +14,55 @@ ans. I have created a pipeline to pull the latest postgres, redis and mongo-expr
      jenkins/jenkinsfile-for-dockerimages
      Then built them as a container on server, below are commands
      
-      postgres: docker run -d -p 5432:5432 postgres:latest
+          postgres: docker run -d -p 5432:5432 postgres:latest
       
-      redis:    docker run -d -p 6379:6379 redis:latest
+          redis:    docker run -d -p 6379:6379 redis:latest
       
-      For mongo-express and mongodb I have created a docker-compose file to connect eachother below is the docker-compose file
-    
-      version: '3'
-      services:
-        mongodb:
-          image: mongo
-          ports:
-            - 27017:27017
-          environment:
-            - MONGO_INITDB_ROOT_USERNAME=ati
-            - MONGO_INITDB_ROOT_PASSWORD=ati1234
+For mongo-express and mongodb I have created a docker-compose file to connect eachother below is the docker-compose file
       
-        mongo-express:
-          image: mongo-express
-          ports:
-            - 8081:8081
-          environment:
-            - ME_CONFIG_MONGODB_ADMINUSERNAME=ati
-            - ME_CONFIG_MONGODB_ADMINPASSWORD=ati1234
-            - ME_CONFIG_MONGODB_SERVER=mongodb
-          depends_on:
-            - mongodb 
+
+            version: '3'
+            services:
+              mongodb:
+                image: mongo
+                ports:
+                  - 27017:27017
+                environment:
+                  - MONGO_INITDB_ROOT_USERNAME=ati
+                  - MONGO_INITDB_ROOT_PASSWORD=ati1234
+            
+              mongo-express:
+                image: mongo-express
+                ports:
+                  - 8081:8081
+                environment:
+                  - ME_CONFIG_MONGODB_ADMINUSERNAME=ati
+                  - ME_CONFIG_MONGODB_ADMINPASSWORD=ati1234
+                  - ME_CONFIG_MONGODB_SERVER=mongodb
+                depends_on:
+                  - mongodb 
+
+  Below is the mongo-express response from the browser
+
+
+Q3.Setup a K3s cluster (either on AWS or on a local server) with one node to run the following pods that are connected together - fleet_manager, postgresql, Nginx, Redis,
+  MongoDB, Grafana, and local docker registry. The script should install the K3s cluster, bring-up the pods and connect the two pods together (MongoDB and Mongo-express 
+  with the above mentioned access credentials). Write a simple service to route externally the nginx pod to localhost through the 80 port and display the “welcome to 
+  nginx” page.
+
+ans: Created k3s cluster with one worker node on aws below are snapshots of the cluster.
+
+  kubectl cluster-info
+        
+     ![Screenshot 2024-07-11 154923](https://github.com/Dhanraj-d/simple-node-js-react-npm-app/assets/93528725/ba2b1c94-def8-4970-b509-680a1e95c1d5)
+
+
+  kubectl get nodes
+       
+![Screenshot 2024-07-11 155138](https://github.com/Dhanraj-d/simple-node-js-react-npm-app/assets/93528725/0960eabe-1386-4ef0-9337-496f8d195417)
+Then created manifest files for mongodb and mongo-express below are the manifest files
+
+
+
+
 
