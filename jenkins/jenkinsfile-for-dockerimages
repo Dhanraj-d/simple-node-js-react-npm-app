@@ -6,7 +6,7 @@ stage('pull docker image of postgres'){
      sh "docker pull postgres"
 }
 }
-sgage('pull docker image of redis'){
+stage('pull docker image of redis'){
    steps{
      sh "docker pull redis && mongo && mongo-express"
 }
