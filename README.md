@@ -1,14 +1,13 @@
-# simple-node-js-react-npm-app
+  Backend Engineer - Assignment (Ati Motors)
+  
+Q1. Create a fork of the following repo (https://github.com/jenkins-docs/simple-node-js-react-npm-app) and add a Jenkins implementation of fetching the required npm packages to build the website and serve it locally. The website should be accessible on localhost through the port 3004 and jenkins server on 3000 with some annotations of the packages used to build the repo and button to execute the build process.
 
-This repository is for the
-[Build a Node.js and React app with npm](https://jenkins.io/doc/tutorials/build-a-node-js-and-react-app-with-npm/)
-tutorial in the [Jenkins User Documentation](https://jenkins.io/doc/).
+ans. I have created a fork for the above repo and installed Jenkins on the AWS server (beacuse I can't do on my laptop as i have an issue on my laptop) and changed default Jenkins port 8080 to 3000 
 
-The repository contains a simple Node.js and React application which generates
-a web page with the content "Welcome to React" and is accompanied by a test to
-check that the application renders satisfactorily.
 
-The `jenkins` directory contains an example of the `Jenkinsfile` (i.e. Pipeline)
-you'll be creating yourself during the tutorial and the `scripts` subdirectory
-contains shell scripts with commands that are executed when Jenkins processes
-the "Test" and "Deliver" stages of your Pipeline.
+
+Q2. In the fork created, create a pipeline to pull the latest postgres, redis and mongo-express and mongo db images and build them as a container locally. The images can be pulled from the public docker registry and hosted in a secured local docker registry (with the same credentials as below). Please connect the mongo-express frontend and mongo db through the following access credentials:
+Username: ati
+Password: ati1234
+
+ans. 
