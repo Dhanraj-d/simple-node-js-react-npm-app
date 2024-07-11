@@ -44,6 +44,9 @@ For mongo-express and mongodb I have created a docker-compose file to connect ea
 
   Below is the mongo-express response from the browser
 
+  ![image](https://github.com/Dhanraj-d/simple-node-js-react-npm-app/assets/93528725/eaef46ab-616e-4e1b-be5d-e07490b3e695)
+
+
 
 Q3.Setup a K3s cluster (either on AWS or on a local server) with one node to run the following pods that are connected together - fleet_manager, postgresql, Nginx, Redis,
   MongoDB, Grafana, and local docker registry. The script should install the K3s cluster, bring-up the pods and connect the two pods together (MongoDB and Mongo-express 
