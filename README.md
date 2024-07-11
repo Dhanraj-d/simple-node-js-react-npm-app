@@ -13,8 +13,11 @@ Password: ati1234
 ans. I have created a pipeline to pull the latest postgres, redis and mongo-express and mongo db images, below is the directory to pipeline
      jenkins/jenkinsfile-for-dockerimages
      Then built them as a container on server, below are commands
+     
       postgres: docker run -d -p 5432:5432 postgres:latest
+      
       redis:    docker run -d -p 6379:6379 redis:latest
+      
       For mongo-express and mongodb I have created a docker-compose file to connect eachother below is the docker-compose file
     
       version: '3'
