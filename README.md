@@ -12,3 +12,29 @@ Password: ati1234
 
 ans. I have created a pipeline to pull the latest postgres, redis and mongo-express and mongo db images, below is the directory to pipeline
      jenkins/jenkinsfile-for-dockerimages
+     Then built them as a container on server, below are commands
+      postgres: docker run -d -p 5432:5432 postgres:latest
+      redis:    docker run -d -p 6379:6379 redis:latest
+      For mongo-express and mongodb I have created a docker-compose file to connect eachother below is the docker-compose file
+    
+      version: '3'
+      services:
+        mongodb:
+          image: mongo
+          ports:
+            - 27017:27017
+          environment:
+            - MONGO_INITDB_ROOT_USERNAME=ati
+            - MONGO_INITDB_ROOT_PASSWORD=ati1234
+      
+        mongo-express:
+          image: mongo-express
+          ports:
+            - 8081:8081
+          environment:
+            - ME_CONFIG_MONGODB_ADMINUSERNAME=ati
+            - ME_CONFIG_MONGODB_ADMINPASSWORD=ati1234
+            - ME_CONFIG_MONGODB_SERVER=mongodb
+          depends_on:
+            - mongodb 
+
