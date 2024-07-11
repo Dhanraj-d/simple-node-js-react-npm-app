@@ -12,4 +12,5 @@ sgage('pull docker image of redis'){
 }
 }
 }
+}
 
