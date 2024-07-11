@@ -1,0 +1,15 @@
+pipeline{
+agent any
+stages{
+sgage('pull docker image of postgres'){
+   steps{
+     sh "docker pull postgres"
+}
+}
+sgage('pull docker image of redis'){
+   steps{
+     sh "docker pull redis && mongo && mongo-express"
+}
+}
+}
+
