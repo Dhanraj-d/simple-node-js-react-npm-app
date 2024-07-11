@@ -54,13 +54,57 @@ ans: Created k3s cluster with one worker node on aws below are snapshots of the 
 
   kubectl cluster-info
         
-     ![Screenshot 2024-07-11 154923](https://github.com/Dhanraj-d/simple-node-js-react-npm-app/assets/93528725/ba2b1c94-def8-4970-b509-680a1e95c1d5)
+ ![Screenshot 2024-07-11 154923](https://github.com/Dhanraj-d/simple-node-js-react-npm-app/assets/93528725/ba2b1c94-def8-4970-b509-680a1e95c1d5)
 
 
   kubectl get nodes
        
 ![Screenshot 2024-07-11 155138](https://github.com/Dhanraj-d/simple-node-js-react-npm-app/assets/93528725/0960eabe-1386-4ef0-9337-496f8d195417)
-Then created manifest files for mongodb and mongo-express below are the manifest files
+Then created manifest files for mongodb and mongo-express below are the manifest files directory
+  simple-node-js-react-npm-app/mongo-express-mongodb-files/
+and deployed it on cluster.
+
+and created nginx manifest files and deployed it on cluster below is the manifest file
+
+
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: nginx-project
+          spec:
+            type: NodePort
+            ports:
+              - port: 80
+            selector:
+              app: nginx-project
+          ---
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: nginx-project
+          spec:
+            replicas: 4
+            selector:
+              matchLabels:
+                app: nginx-project
+            template:
+              metadata:
+                labels:
+                  app: nginx-project
+              spec:
+                containers:
+                  - name: nginx
+                    image: nginx:1.17.3
+                    ports:
+                      - containerPort: 80
+
+
+  And exposed it on the browser below is the snapshot
+
+  ![image](https://github.com/Dhanraj-d/simple-node-js-react-npm-app/assets/93528725/418dee47-0b02-4af1-973c-8d9702539a9b)
+
+
+      
 
 
 
