@@ -1,13 +1,8 @@
 pipeline {
-   agent {
-        label {
-            label "docker"
-            customWorkspace "/home/ubuntu/simple-node-js-react-npm-app/"
+   agent any
         //docker {
            // image 'node:lts-buster-slim'
            // args '-p 3000:3000'
-       }
-   }
     environment {
         CI = 'true'
     }
