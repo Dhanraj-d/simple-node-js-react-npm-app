@@ -1,7 +1,7 @@
 pipeline{
 agent any
 stages{
-sgage('pull docker image of postgres'){
+stage('pull docker image of postgres'){
    steps{
      sh "docker pull postgres"
 }
