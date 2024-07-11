@@ -8,7 +8,9 @@ stage('pull docker image of postgres'){
 }
 stage('pull docker image of redis'){
    steps{
-     sh "docker pull redis && mongo && mongo-express"
+     sh "docker pull redis"
+     sh"docker pull mongo"
+     sh"docker pull mongo-express"
 }
 }
 }
